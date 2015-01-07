@@ -16,12 +16,12 @@ public class TriangleIsoseles extends Triangle {
 
 	@Override
 	protected void genDrigress() {
-		degress[2]=(float)Math.sinh(altura/Math.hypot(base, altura));
-		degress[1]=(float)(altura/(base/2));
+		degress[2]=Math.round(Math.toDegrees(Math.atan((altura/(base/2)))));
+		degress[1]=Math.round(Math.toDegrees(Math.atan((altura/(base/2)))));
 		degress[0]=180-2*degress[2];
 	}
 	
-	public float getVertice(){
+	public double getVertice(){
 		return degress[0];
 	}
 

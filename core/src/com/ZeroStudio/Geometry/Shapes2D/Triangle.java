@@ -8,11 +8,11 @@ import com.badlogic.gdx.math.Polygon;
 
 public abstract class Triangle extends Polygon {
 
-	public static ShapeRenderer shapeRenderer = new ShapeRenderer();
+	public static final ShapeRenderer shapeRenderer = new ShapeRenderer();
 	
 	protected TriangleType type;
 	protected float base, altura;
-	protected final float[] degress = new float[3];
+	protected final double[] degress = new double[3];
 	protected static final float startX = 100, startY = 100;
 	
 	protected Triangle(float[] vertices, TriangleType type, float base, float altura) {

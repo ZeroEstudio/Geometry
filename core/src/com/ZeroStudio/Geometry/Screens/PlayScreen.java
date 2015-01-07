@@ -1,33 +1,15 @@
 package com.ZeroStudio.Geometry.Screens;
 
 import com.ZeroStudio.Geometry.Geo;
-import com.ZeroStudio.Geometry.Shapes2D.Triangle;
 import com.ZeroStudio.Geometry.Shapes2D.TriangleEquilatero;
 import com.ZeroStudio.Geometry.Shapes2D.TriangleIsoseles;
 import com.ZeroStudio.Geometry.Shapes2D.TriangleRectangle;
-import com.ZeroStudio.Geometry.Shapes2D.TriangleType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.DelaunayTriangulator;
 import com.badlogic.gdx.math.Ellipse;
-import com.badlogic.gdx.math.GeometryUtils;
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Polygon;
-import com.badlogic.gdx.math.collision.BoundingBox;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Box2D;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.sun.xml.internal.messaging.saaj.soap.ver1_1.Body1_1Impl;
 
 public class PlayScreen extends AbstractScreen{
 	
@@ -62,9 +44,9 @@ public class PlayScreen extends AbstractScreen{
 		System.out.println("base tRect: "+tRect.getBase());
 		System.out.println("altura tRect: "+tRect.getAltura());
 		System.out.println("Hipo tRect: "+tRect.getHipotenusa());
-		System.out.println("angle1: "+tRect.getDegress()[0]);
-		System.out.println("angle2: "+tRect.getDegress()[1]);
-		System.out.println("angle3: "+tRect.getDegress()[2]);
+		System.out.println("angle1: "+tRect.getDegress(0));
+		System.out.println("angle2: "+tRect.getDegress(1));
+		System.out.println("angle3: "+tRect.getDegress(2));
 		
 		tEqui = new TriangleEquilatero(100);
 		tEqui.setPosition(350, 500);
@@ -87,12 +69,6 @@ public class PlayScreen extends AbstractScreen{
 		stage.draw();
 		stage.act();
 		
-		Batch batch = game.getBatch();
-		
-		batch.begin();
-//		sprite.draw(batch);
-		batch.end();
-		
 		if(tEqui.overLaps(tIsos)){
 			System.out.println("Overlaps Poligon");
 		}
@@ -108,6 +84,7 @@ public class PlayScreen extends AbstractScreen{
 		tRect.draw(Color.BLUE);
 		tEqui.draw(Color.BLACK);
 		tIsos.draw(Color.CYAN);
+		
 		
 //		shapeRenderer.setColor(Color.BLACK);
 //		shapeRenderer.begin(ShapeType.Line);
