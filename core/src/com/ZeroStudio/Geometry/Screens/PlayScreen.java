@@ -40,6 +40,7 @@ public class PlayScreen extends AbstractScreen{
 		
 		tRect = new TriangleRectangle(100, 50);
 		tRect.setPosition(250, 250);
+		tRect.setScale(2f, 2f);
 		System.out.println("area tRect: "+tRect.area());
 		System.out.println("base tRect: "+tRect.getBase());
 		System.out.println("altura tRect: "+tRect.getAltura());
@@ -55,6 +56,7 @@ public class PlayScreen extends AbstractScreen{
 		System.out.println("altura tEuiq: "+tEqui.getAltura());
 		
 		tIsos = new TriangleIsoseles(200, 500);
+		tIsos.setScale(.5f, .5f);
 		System.out.println("area tIsos: "+tIsos.area());
 		System.out.println("base tIsos: "+tIsos.getBase());
 		System.out.println("altura tIsos: "+tIsos.getAltura());

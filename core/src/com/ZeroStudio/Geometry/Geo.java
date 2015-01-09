@@ -2,11 +2,10 @@ package com.ZeroStudio.Geometry;
 
 import java.util.Random;
 
-import com.ZeroStudio.Geometry.Screens.PlayScreen;
+import com.ZeroStudio.Geometry.Screens.Scene2DScreenUI;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.Scaling;
-import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Geo extends Game {
@@ -20,9 +19,9 @@ public class Geo extends Game {
 	public void create () {
 		width = 860; height = 700;
 		batch = new SpriteBatch();
-		view = new ScalingViewport(Scaling.stretch, width, height);
+		view = new FitViewport(width, height);
 		
-		setScreen(new PlayScreen(this));
+		setScreen(new Scene2DScreenUI(this));
 	}
 
 	/**
@@ -39,32 +38,6 @@ public class Geo extends Game {
 		digress[0]-=digress[2];
 		
 		return digress;
-	}
-
-	private String cripty(String plainText) {
-		char[] temp = new char[plainText.length()];
-		for (int i = 0; i < plainText.length(); i++) {
-			temp[i]=plainText.charAt(i);
-			if(temp[i]=='z'){
-				temp[i]='a';
-			}else{
-				temp[i]+=1;
-			}
-		}
-		return new String(temp);
-	}
-	
-	private String unCripty(String plainText) {
-		char[] temp = new char[plainText.length()];
-		for (int i = 0; i < plainText.length(); i++) {
-			temp[i]=plainText.charAt(i);
-			if(temp[i]=='a'){
-				temp[i]='z';
-			}else{
-				temp[i]-=1;
-			}
-		}
-		return new String(temp);
 	}
 	
 	public int getWidth() {

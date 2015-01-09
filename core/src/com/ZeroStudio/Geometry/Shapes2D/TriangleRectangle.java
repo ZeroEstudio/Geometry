@@ -30,5 +30,11 @@ public class TriangleRectangle extends Triangle {
 	public double getDegress(int index){
 		return degress[index];
 	}
+	
+	@Override
+	public void setScale(float scaleX, float scaleY) {
+		super.setScale(scaleX, scaleY);
+		hipotenusa=Math.hypot(base, altura);
+	}
 
 }

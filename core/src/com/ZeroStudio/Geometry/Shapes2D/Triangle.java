@@ -42,5 +42,12 @@ public abstract class Triangle extends Polygon {
 	public boolean overLaps(Triangle tr){
 		return Intersector.overlapConvexPolygons(this, tr);
 	}
+	
+	@Override
+	public void setScale(float scaleX, float scaleY) {
+		super.setScale(scaleX, scaleY);
+		base*=scaleX;
+		altura*=scaleY;
+	}
 
 }
